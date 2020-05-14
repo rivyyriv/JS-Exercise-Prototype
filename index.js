@@ -57,7 +57,7 @@ Airplane.prototype.land = function () {
     Person.prototype.toString = function() {
       return `${this.name}, ${this.age}`;
     };
-  
+   
 /*
   TASK 2
     - Write a Car constructor that initializes `model` and `milesPerGallon` from arguments.
@@ -72,10 +72,18 @@ Airplane.prototype.land = function () {
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-function Car() {
+    function Car(model, milesPerGallon) {
+          
+          this.model = model;
+          this.milesPerGallon = milesPerGallon;
+          this.tank = [];
+          this.odometer = [];
 
-}
+    }
 
+      Car.prototype.fill = function (gallons){
+        this.tank.push(gallons)
+      }
 /*
   TASK 3
     - Write a Baby constructor subclassing Person.
@@ -83,19 +91,14 @@ function Car() {
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby() {
+      function Baby(name, age, favoriteToy) {
+        Person.call(this, name, age);
+        this.favoriteToy = favoriteToy;
+      }
 
-}
-
-/* 
-  TASK 4
-
-  In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
-*/
+      Baby.prototype.play = function() {
+        return `Playing with ${this.favoriteToy}`;
+      };
 
 
 ///////// END OF CHALLENGE /////////
